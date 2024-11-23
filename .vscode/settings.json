@@ -1,0 +1,17 @@
+{
+    "files.useExperimentalFileWatcher": true,
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": true,
+    "python.defaultInterpreterPath": "./chatvenv/bin/python",
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+    },
+    "flake8.args": [
+        "--ignore=F401,E501"
+    ],
+    "html.autoClosingTags": true,
+}
