@@ -12,6 +12,7 @@ class ChannelSerializer(serializers.ModelSerializer):
 class ServerSerializer(serializers.ModelSerializer):
     num_members = serializers.SerializerMethodField()
     channel_server = ChannelSerializer(many=True)
+    category = serializers.StringRelatedField()
 
     class Meta:
         model = Server
@@ -31,5 +32,7 @@ class ServerSerializer(serializers.ModelSerializer):
         return data
 
 
-class categorySerializer(serializers.ModelSerializer):
-    pass
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = "__all__"

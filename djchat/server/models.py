@@ -34,6 +34,7 @@ class Category(models.Model):
             existing = get_object_or_404(Category, id=self.id)
             if existing.icon != self.icon:
                 existing.icon.delete(save=False)
+        self.name = self.name.lower()
         super(Category, self).save(*args, **kwargs)
 
     @receiver(models.signals.pre_delete, sender="server.Category")
@@ -78,6 +79,8 @@ class Server(models.Model):
                 existing.icon.delete(save=False)
             if existing.banner != self.banner:
                 existing.banner.delete(save=False)
+        self.name = self.name.lower()
+
         super(Server, self).save(*args, **kwargs)
 
     @receiver(models.signals.pre_delete, sender="server.Server")
@@ -98,14 +101,13 @@ class Channel(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="channel_owner"
     )
     topic = models.CharField(max_length=100)
-
     server = models.ForeignKey(
-        Server, related_name="channel_server", on_delete=models.CASCADE
+        Server, on_delete=models.CASCADE, related_name="channel_server"
     )
 
     def save(self, *args, **kwargs):
         self.name = self.name.lower()
-        super(Channel, self).save(*args, **kwargs)
+        super(Server, self).save(*args, **kwargs)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name

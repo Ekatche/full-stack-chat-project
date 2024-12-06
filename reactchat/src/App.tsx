@@ -1,14 +1,14 @@
 import router from "./routes"
 import { RouterProvider } from "react-router-dom"
-import createMuiTheme from "./theme/theme"
-import { ThemeProvider } from "@mui/material/styles";
 import "./theme/main.css"
+import ToggleColorMode from "./components/ToggleColorMode";
+
+
 const App: React.FC = () => {
-  const theme = createMuiTheme();
   return (
-    <ThemeProvider theme={theme}>
+    <ToggleColorMode >
       < RouterProvider router={router} />
-    </ThemeProvider>
+    </ToggleColorMode>
 
   );
 }

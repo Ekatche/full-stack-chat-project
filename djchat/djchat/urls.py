@@ -21,10 +21,12 @@ from django.contrib import admin
 from django.urls import path
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.routers import DefaultRouter
-from server.views import ServerListViewSet
+from server.views import CategoryListViewset, ServerListViewSet
 
 router = DefaultRouter()
-router.register(r"api/server/select", ServerListViewSet)
+router.register(r"api/server/category", CategoryListViewset, "category")
+router.register(r"api/server/select", ServerListViewSet, "server")
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -34,8 +36,7 @@ urlpatterns = [
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui",
     ),
-]
-urlpatterns += router.urls
+] + router.urls
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, documents_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

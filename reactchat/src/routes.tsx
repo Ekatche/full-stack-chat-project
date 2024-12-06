@@ -4,6 +4,7 @@ import {
     createRoutesFromElements,
 } from "react-router-dom";
 import Home from "./pages/Home";
+import Explore from "./pages/Explore";
 
 
 const router = createBrowserRouter(
@@ -12,6 +13,10 @@ const router = createBrowserRouter(
             <Route
                 element={<Home />}
                 path="/"
+            />
+            <Route
+                element={<Explore />}
+                path="/explore/:categoryName"
             />
         </Route>
     )

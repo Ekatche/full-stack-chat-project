@@ -3,8 +3,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, Box, Drawer, IconButton, Link, Toolbar, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
+import ExploreCategories from "../../components/SecondaryDraw/Explorecategories";
+import AccountButton from "../../components/PrimaryAppBar/AccountButton";
+
 
 const PrimaryAppBar = () => {
+
     const [sideMenu, setSideMenu] = useState(false);
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.up("sm"))
@@ -27,6 +31,20 @@ const PrimaryAppBar = () => {
                 }
                 setSideMenu(open);
             };
+
+
+    const list = () => (
+        <Box sx={{
+            paddingTop: `${theme.primaryAppBar.height}px`,
+            minWidth: 200,
+        }}
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+        >
+            <ExploreCategories />
+
+        </Box>
+    )
 
     return (
         <AppBar sx={{
@@ -57,31 +75,25 @@ const PrimaryAppBar = () => {
                     open={sideMenu}
                     onClose={toggleDrawer(false)}
                 >
-                    {[...Array(100)].map((_, i) => (
-                        <Typography key={i} components="paragraph">
-                            {i + 1}
 
-                        </Typography>)
-
-                    )}
-
+                    {/* categories element in side bar */}
+                    {list()}
                 </Drawer>
 
 
                 <Link href="/" underline="none" color="inherit">
-                    <Typography variant="h6"
-                        components="div"
+                    <Typography
+                        variant="h6"
                         noWrap
-                        sx={{
-                            display: { fontWeight: 700, letterSpacing: "-0.5" }
-                        }}
+                        component="div"
+                        sx={{ display: { fontWeight: 700, letterSpacing: "-0.5px" } }}
                     >
                         DJCHAT
                     </Typography>
                 </Link>
-                <IconButton color="inherit" aria-label="open drawer" edge="end" sx={{ marginRight: 2 }}>
-                    <PersonIcon />
-                </IconButton>
+                <Box sx={{ flexGrow: 1 }}></Box>
+                <AccountButton />
+
 
 
             </Toolbar>

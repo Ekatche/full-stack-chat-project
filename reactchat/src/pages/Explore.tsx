@@ -7,7 +7,8 @@ import Main from "./templates/Main";
 import PopularChannels from "../components/PrimaryDraw/PopularChannels";
 import ExploreCategories from "../components/SecondaryDraw/Explorecategories";
 import ExploreServers from "../components/Main/ExploreServers";
-const Home = () => {
+
+const Explore = () => {
     return (
         <Box sx={{
             display: "flex",
@@ -30,4 +31,4 @@ const Home = () => {
         </Box>
     )
 };
-export default Home
+export default Explore
