@@ -10,13 +10,7 @@ server_list_docs = extend_schema(
             name="category",
             type=OpenApiTypes.STR,
             location=OpenApiParameter.QUERY,
-            description="catefory of server to retrieve",
-        ),
-        OpenApiParameter(
-            name="quantity",
-            type=OpenApiTypes.INT,
-            location=OpenApiParameter.QUERY,
-            description="Number of server to retrieve",
+            description="Category of server to retrieve",
         ),
         OpenApiParameter(
             name="qty",
@@ -31,16 +25,16 @@ server_list_docs = extend_schema(
             description="Filter servers by the current authenticated user(true/false)",
         ),
         OpenApiParameter(
-            name="by_server_id",
-            type=OpenApiTypes.INT,
-            location=OpenApiParameter.QUERY,
-            description="Retrieve server with its ID",
-        ),
-        OpenApiParameter(
             name="with_num_members",
             type=OpenApiTypes.BOOL,
             location=OpenApiParameter.QUERY,
             description="Include the number of members for each serverin the response",
+        ),
+        OpenApiParameter(
+            name="by_serverid",
+            type=OpenApiTypes.INT,
+            location=OpenApiParameter.QUERY,
+            description="Retrieve server with its ID",
         ),
     ],
 )

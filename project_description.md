@@ -23,4 +23,11 @@ up to you, what you want to use and how you want to use tham
 viewset = class, performs crud operation and bridge btw auery and serializer
 serializer--> convert django models datatype to Json or other format usable by the frontend 
 
-# React frontend with Vite
+# Use uvicorn for ASGI requests 
+Here is the command to run the django server using uvicorn:   
+`uvicorn djchat.asgi:application --workers 4 --log-level debug --reload`
+
+http vs websockets protocols
+
+http is stateless, only invokes server side ,the sever does not save any info about the iteractions between client and server 
+websockets is statefull, bi directionnal protocol, server remebers information about the clients session or previous requests 

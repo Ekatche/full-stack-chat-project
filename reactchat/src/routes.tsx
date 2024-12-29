@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
+import Server from "./pages/Server";
 
 
 const router = createBrowserRouter(
@@ -13,6 +14,10 @@ const router = createBrowserRouter(
             <Route
                 element={<Home />}
                 path="/"
+            />
+            <Route
+                element={<Server />}
+                path="/server/:serverId/:channelId?"
             />
             <Route
                 element={<Explore />}

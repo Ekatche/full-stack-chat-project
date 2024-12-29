@@ -22,6 +22,7 @@ from django.urls import path
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.routers import DefaultRouter
 from server.views import CategoryListViewset, ServerListViewSet
+from webchat.consumer import WebChatConsumer
 
 router = DefaultRouter()
 router.register(r"api/server/category", CategoryListViewset, "category")
@@ -37,6 +38,11 @@ urlpatterns = [
         name="swagger-ui",
     ),
 ] + router.urls
+
+
+websockets_urlspatterns = [
+    path("ws/test", WebChatConsumer.as_asgi()),
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
