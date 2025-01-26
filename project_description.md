@@ -1,4 +1,4 @@
-https://www.youtube.com/watch?v=J4RPbOuY9oI&list=PLOLrQ9Pn6cawHF2lVl9goEm9Ta3rlutPD&index=36
+tutorial that helps you start the project : https://www.youtube.com/watch?v=J4RPbOuY9oI&list=PLOLrQ9Pn6cawHF2lVl9goEm9Ta3rlutPD&index=36
 
 # create venv
 python3 -m venv chatvenv
@@ -19,8 +19,8 @@ user:admin
 password:adminpass
 
 # Class based views or function based views 
-up to you, what you want to use and how you want to use tham 
-viewset = class, performs crud operation and bridge btw auery and serializer
+up to you, what you want to use and how you want to use them 
+viewset = class, performs crud operation and bridge btw query and serializer
 serializer--> convert django models datatype to Json or other format usable by the frontend 
 
 # Use uvicorn for ASGI requests 
